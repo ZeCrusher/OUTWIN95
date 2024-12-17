@@ -8,7 +8,7 @@
  //#pragma warn -par
 
  // Test de la configuration de la M‚moire … la compilation .....
-#include "fmem__.cpp" // Verifie les Erreurs du aux modeles de m‚moire
+#include "fmem__.cpp" // Verifie les Erreurs du aux modeles de mémoire
 
 #if !defined( __CONIO_H )
  #include <conio.h>
@@ -37,7 +37,7 @@
 #endif
 
 #if !defined( __FMENU )
- #include "d:\tsk\fct\fmenu.h"
+ #include "fmenu.h"
  #define __FMENU
 #endif
 #if !defined( __FASCII )
