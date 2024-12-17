@@ -1,14 +1,14 @@
 // OUTWIN.CPP
 
-// #pragma hdrfile 	 "c:\tsk\tsk.SYM"  // Changement du fichier entˆtes pr‚compil‚s.
+// #pragma hdrfile 	 "c:\tsk\tsk.SYM"  // Changement du fichier entË†tes prâ€šcompilâ€šs.
  #pragma -O2		// vitesse
  #pragma -G		// vitesse du code EXE
- #pragma -ml		// Pour les pointeurs - ModŠle de m‚moire voir Option|Compiler|Code_generation|Large(ù)
+ #pragma -ml		// Pour les pointeurs - ModÅ le de mâ€šmoire voir Option|Compiler|Code_generation|Large(Ã¹)
 
  //#pragma warn -par
 
- // Test de la configuration de la M‚moire … la compilation .....
-#include "d:\tsk\fct\fmem__.cpp" // Verifie les Erreurs du aux modeles de m‚moire
+ // Test de la configuration de la Mâ€šmoire â€¦ la compilation .....
+#include "fmem__.cpp" // Verifie les Erreurs du aux modeles de mâ€šmoire
 
 #if !defined( __CONIO_H )
  #include <conio.h>
@@ -28,11 +28,11 @@
  #define colorxy(x,y,color,fond) 	gotoxy(x,y);textcolor(color);textbackground(fond)
 
 #if !defined( __FCADRE )
- #include "d:\tsk\fct\fcadre.h"
+ #include "fcadre.h"
  #define __FCADRE
 #endif
 #if !defined( __FMOUSE )
- #include "d:\tsk\fct\fmouse.h"
+ #include "fmouse.h"
  #define __FMOUSE
 #endif
 
@@ -41,11 +41,11 @@
  #define __FMENU
 #endif
 #if !defined( __FASCII )
- #include "d:\tsk\fct\fascii.h"
+ #include "fascii.h"
  #define __FASCII
 #endif
 #if !defined( __FFICHIER )
- #include "d:\tsk\fct\ffichier.h"
+ #include "ffichier.h"
  #define __FFICHIER
 #endif
 
@@ -81,7 +81,7 @@ extern void right(byte *texte_source,byte *texte_objet,int taille_du_source,int 
 extern int input(int x,int y,int nbr_lettre_saisie,char texte[132],int color);
 ////////////////////////// Dans FASCII.H /////////////////////////////////////
 extern void table_ascii(void);
-extern void init_ascii();  								// Init la cr‚ation des codes ASCII
+extern void init_ascii();  								// Init la crâ€šation des codes ASCII
 extern void definition_ascii(char table[16],char ascii);   //
 extern void change_palette_texte(int n,char color);
 
@@ -102,7 +102,7 @@ extern  int message_err(int type);
 ///////////////////////// Fediteur ///////////////////////////////
 extern int  edit(char *nom_fichier);
 /////////////////////// Fonctions //////////////////////////////////////////
-extern int strdecoupe(byte  *texte_source ,byte  *texte_objet,int debut,int fin); // prend une partie de la chaŒne source et la copie dans objet
+extern int strdecoupe(byte  *texte_source ,byte  *texte_objet,int debut,int fin); // prend une partie de la chaÅ’ne source et la copie dans objet
 
 /////////////////////// Fonctions //////////////////////////////////////////
 
@@ -168,13 +168,13 @@ int main(char argc, char **argv)
 	char sauve[4096]; // Pour stocker le fond pour la fonction charger
 
 	byte *str_Menu_default[8] = {" _1 Normal ",
-							" _2 Journal de d‚marrage (Bootlog.txt) ",
+							" _2 Journal de dâ€šmarrage (Bootlog.txt) ",
 							" _3 Mode sans echec  ",
-							" _4 Mode sans echec avec support r‚seau ",
-							" _5 Confirmation pas … pas ",
+							" _4 Mode sans echec avec support râ€šseau ",
+							" _5 Confirmation pas â€¦ pas ",
 							" _6 Ligne de commande uniquement ",
 							" _7 Ligne de commande en mode sans echec",
-							" _8 Version pr‚c‚dente de Ms-Dos "};
+							" _8 Version prâ€šcâ€šdente de Ms-Dos "};
 
 	if (argc==2) {
 		if (strcmpi(argv[1],"/boot")==0)		{
@@ -192,10 +192,10 @@ int main(char argc, char **argv)
 			edit("c:\\msdos.sys");
 			cache_souris();color(7,0);
 			clrscr();
-			locatext(1,1,"Outwin 95 version 1.1 Copirate  Ó×ô ZeCrusher (Z!) ",15+16*0);
+			locatext(1,1,"Outwin 95 version 1.1 Copirate  Ã“Ã—Ã´ ZeCrusher (Z!) ",15+16*0);
 			if (_dos_setfileattr("C:\\MSDOS.SYS",FA_RDONLY|FA_HIDDEN|FA_SYSTEM)!= 0)	{
 				erreur_fichier();color(7,0);clrscr();
-				locatext(1,1,"Outwin 95 version 1.1 Copirate  Ó×ô ZeCrusher (Z!)",15+16*0);
+				locatext(1,1,"Outwin 95 version 1.1 Copirate  Ã“Ã—Ã´ ZeCrusher (Z!)",15+16*0);
 				exit(1);
 			}
 			 exit(0);
@@ -205,7 +205,7 @@ int main(char argc, char **argv)
 			printf("\n OutWin 95 par ZeCrusher !!  (TSK_98)\n");
 			printf(" Parametres : /?\n");
 			printf(" Parametres : /e lance l'editeur de OUTWIN95\n");
-			printf("            : /boot pour cr‚er le fichier c:\\dos\\zcboot.com\n");
+			printf("            : /boot pour crâ€šer le fichier c:\\dos\\zcboot.com\n");
 			exit(0);
 		}
 		if (strcmpi(argv[1],"/p")==0)		{
@@ -223,7 +223,7 @@ int main(char argc, char **argv)
 
 	_setcursortype(_NOCURSOR);
 
-	table_ascii();		// F1 , Cr‚ation des nouveau char ASCII
+	table_ascii();		// F1 , Crâ€šation des nouveau char ASCII
 
 	fond(0);
 
@@ -239,7 +239,7 @@ int main(char argc, char **argv)
 	cache_souris();
 	deco(); // Presentation du fond de l 'interface
 	choix_menu=0;
-	recup_info_msdos("c:\\MSDOS.SYS",1); // Recupere les donn‚es du fichier MSDOS.SYS
+	recup_info_msdos("c:\\MSDOS.SYS",1); // Recupere les donnâ€šes du fichier MSDOS.SYS
 	installation("c:\\msdos.sys","c:\\msdos.zch");
 
 	init_souris();
@@ -264,7 +264,7 @@ int main(char argc, char **argv)
 					gettext(1, 1, 80, 25,sauve);
 					cadre_plein(23,15,56,17,SIMPLE,WHITE,7,1);      // dessine le cadre
 					locatext(25,16," Fichier en chargement ",0+16*7);
-					recup_info_msdos("c:\\MSDOS.SYS",1); // Recupere les donn‚es du fichier MSDOS.SYS
+					recup_info_msdos("c:\\MSDOS.SYS",1); // Recupere les donnâ€šes du fichier MSDOS.SYS
 					puttext(1, 1, 80, 25,sauve);
 					montre_souris();
 				}
@@ -278,15 +278,15 @@ int main(char argc, char **argv)
 					gettext(1, 1, 80, 25,sauve);
 					cadre_plein(23,15,56,17,SIMPLE,WHITE,7,1);      // dessine le cadre
 					locatext(25,16," Fichier en chargement ",0+16*7);
-					recup_info_msdos("c:\\MSDOS.SYS",1); // Recupere les donn‚es du fichier MSDOS.SYS
+					recup_info_msdos("c:\\MSDOS.SYS",1); // Recupere les donnâ€šes du fichier MSDOS.SYS
 					puttext(1, 1, 80, 25,sauve);
-//					locatext(50,25,"Le fichier a ‚t‚ charg‚     ",15+16*9);
-					recup_info_msdos("c:\\MSDOS.SYS",1); // Recupere les donn‚es du fichier MSDOS.SYS
+//					locatext(50,25,"Le fichier a â€štâ€š chargâ€š     ",15+16*9);
+					recup_info_msdos("c:\\MSDOS.SYS",1); // Recupere les donnâ€šes du fichier MSDOS.SYS
 				}
 
 				if (touche==F5) {
 					installation("c:\\msdos.zch","c:\\msdos.sys");
-					recup_info_msdos("c:\\MSDOS.SYS",1); // Recupere les donn‚es du fichier MSDOS.SYS
+					recup_info_msdos("c:\\MSDOS.SYS",1); // Recupere les donnâ€šes du fichier MSDOS.SYS
 					aff_val();
 				}
 				if (touche==F1) {
@@ -398,14 +398,14 @@ int main(char argc, char **argv)
 		if ((bouton==BOUTON_GAUCHE)||(touche==ENTREE)||(touche=='+')||(touche=='-')) {
 			cache_souris();
 			if (y==0) {
-				if (found_file(fichier,r,"win.com","  Repertoire ou Windows est install‚ ")!=-1) {
+				if (found_file(fichier,r,"win.com","  Repertoire ou Windows est installâ€š ")!=-1) {
 					strcpy(valeur_table[0],r);
 				}
 				locatext(26,5+y,"                                 ",14+16*9);
 				locatext(26,5+y,valeur_table[0],14+16*9);
 			}
 			if (y==1) {
-				if (found_file(fichier,r,"win.com","  Repertoire ou Windows est Execut‚ ")!=-1) {
+				if (found_file(fichier,r,"win.com","  Repertoire ou Windows est Executâ€š ")!=-1) {
 					strcpy(valeur_table[1],r);
 				}
 				locatext(26,5+y,"                                 ",14+16*9);
@@ -428,7 +428,7 @@ int main(char argc, char **argv)
 				if (delay_boot>60) 	{ delay_boot = 0; }
 				if (delay_boot<0) 	{ delay_boot = 59; }
 				delay(90);
-				itoa(delay_boot,valeur_table[3],10); // Convertit delay_boot ( un entier ) en une chaŒne de caractŠres
+				itoa(delay_boot,valeur_table[3],10); // Convertit delay_boot ( un entier ) en une chaÅ’ne de caractÅ res
 				locatext(30,11,"   ",14+16*9); 		 // efface de l'ecran la precedente valeur
 				locatext(30,11,valeur_table[3],14+16*9);  // Affiche la valeur itoa(delay_boot)
 			}
@@ -478,7 +478,7 @@ int main(char argc, char **argv)
 	while(choix_menu==0);
 	init_souris();
 	color(7,0);clrscr();
-	cprintf("Outwin 95 par ");color(4,0);cprintf("Ó×ô ");color(7,0);cprintf("ZeCrusher");
+	cprintf("Outwin 95 par ");color(4,0);cprintf("Ã“Ã—Ã´ ");color(7,0);cprintf("ZeCrusher");
 	_dos_setfileattr("C:\\MSDOS.SYS",FA_RDONLY|FA_HIDDEN|FA_SYSTEM);
 	_setcursortype(_NORMALCURSOR);
 
@@ -501,10 +501,10 @@ void presentation(void)
 	locatext(35,11,"Version 1.1",0+16*15);
 	locatext(32,13,"Copirate  (Z) 1998",0+16*15);
 	locatext(31,15,"Outwin95 by ZeCrusher",0+16*15);
-	titre(37,18,14,1,DARKGRAY,15,"   Ó×ô   ",0);
+	titre(37,18,14,1,DARKGRAY,15,"   Ã“Ã—Ã´   ",0);
 	montre_souris();
 	bouton_xyl(37,18,9); // Gestion du Bouton OK
-	titre(37,18,14,1,DARKGRAY,15,"   Ó×ô   ",1);
+	titre(37,18,14,1,DARKGRAY,15,"   Ã“Ã—Ã´   ",1);
 	relacher_bsgauche();
 	cache_souris();
 
@@ -528,7 +528,7 @@ void deco(void)
 	locatext(1,1,"                                              							         ",LIGHTRED+16*WHITE);
 	bar_menu(3,1,BLACK,WHITE,RED," _Fichier  _Edit  E_xpress                                                 _Aide  ");
 	gotoxy(1,1);
-	locatext(1,25,"                                                                             Ó×ô",1+16*9);
+	locatext(1,25,"                                                                             Ã“Ã—Ã´",1+16*9);
 	titre(16,3,15,7,DARKGRAY,9, "                 Section Path               ",0);
 	titre(16,9,15,7,DARKGRAY,9, "                Section Option              ",0);
 	titre(40,11,15,7,DARKGRAY,9, " Signification ",0);
@@ -537,9 +537,9 @@ void deco(void)
 }
 void option_menu(int color)
 {
-	locatext(4,5,"WinDir              ³",color+16*9);
-	locatext(4,6,"WinBootDir          ³",color+16*9);
-	locatext(4,7,"HostWinBootDrv      ³",color+16*9);
+	locatext(4,5,"WinDir              Â³",color+16*9);
+	locatext(4,6,"WinBootDir          Â³",color+16*9);
+	locatext(4,7,"HostWinBootDrv      Â³",color+16*9);
 	locatext(4,11,"Bootdelay               ",color+16*9);
 	locatext(4,12,"BootFailSafe            ",color+16*9);
 	locatext(4,13,"BootGUI                 ",color+16*9);
@@ -554,10 +554,10 @@ void option_menu(int color)
 	locatext(4,22,"Logo                    ",color+16*9);
 	locatext(4,23,"LoadTop                 ",color+16*9);
 	locatext(4,24,"Network                 ",color+16*9);
-	locatext(35,13,"  Type de donn‚es       Valeur par defaut  ",15+16*7);
+	locatext(35,13,"  Type de donnâ€šes       Valeur par defaut  ",15+16*7);
 
 	for(int i=0;i<14;i++) {
-		locatext(28,11+i,"³",15+16*9);
+		locatext(28,11+i,"Â³",15+16*9);
 	}
 }
 void signification(int numb)
@@ -567,38 +567,38 @@ void signification(int numb)
 	clrscr();
 		locatext(65,15,"-",15+16*1);
 	if (numb==0) {
-		locatext(37,15,"R‚pertoire",14+16*1);
-		locatext(37,17,"Le r‚pertoire o— Windows est install‚",15+16*1);
+		locatext(37,15,"Râ€špertoire",14+16*1);
+		locatext(37,17,"Le râ€špertoire oâ€” Windows est installâ€š",15+16*1);
 	}
 	if (numb==1) {
-		locatext(37,15,"R‚pertoire",14+16*1);
-		locatext(37,17,"Le r‚pertoire … partir duquel Windows",15+16*1);
-		locatext(37,18,"est ex‚cut‚.",15+16*1);
+		locatext(37,15,"Râ€špertoire",14+16*1);
+		locatext(37,17,"Le râ€špertoire â€¦ partir duquel Windows",15+16*1);
+		locatext(37,18,"est exâ€šcutâ€š.",15+16*1);
 	}
 	if (numb==2) {
 		locatext(37,15,"Lecteur",14+16*1);
-		locatext(37,17,"Le Lecteur de d‚marrage de Windows.",15+16*1);
+		locatext(37,17,"Le Lecteur de dâ€šmarrage de Windows.",15+16*1);
 		locatext(37,18,"(note N'indiquez pas les ' : ')",15+16*1);
 	}
 
 	if (numb==6) {
 		locatext(37,15,"Nombre de seconde             2",14+16*1);
-		locatext(37,17,"  Dur‚e pendant laquelle le message",15+16*1);
-		locatext(37,18,"'D‚marrage de Windows 95' reste … ",15+16*1);
-		locatext(37,19,"l'‚cran",15+16*1);
+		locatext(37,17,"  Durâ€še pendant laquelle le message",15+16*1);
+		locatext(37,18,"'Dâ€šmarrage de Windows 95' reste â€¦ ",15+16*1);
+		locatext(37,19,"l'â€šcran",15+16*1);
 	}
 	if (numb==7) {
 		locatext(37,15,"   1 ou 0                     0",14+16*1);
-		locatext(37,17,"1 = L'ordinateur d‚marre toujours en",15+16*1);
-		locatext(37,18,"mode 'sans ‚chec'.",15+16*1);
-		locatext(37,19,"0 = L'ordinateur d‚marre selon le mode",15+16*1);
-		locatext(37,20,"appropri‚ , avec ou sans ‚chec'.",15+16*1);
+		locatext(37,17,"1 = L'ordinateur dâ€šmarre toujours en",15+16*1);
+		locatext(37,18,"mode 'sans â€šchec'.",15+16*1);
+		locatext(37,19,"0 = L'ordinateur dâ€šmarre selon le mode",15+16*1);
+		locatext(37,20,"appropriâ€š , avec ou sans â€šchec'.",15+16*1);
 	}
 	if (numb==8) {
 		locatext(37,15,"   1 ou 0                     1",14+16*1);
-		locatext(37,17,"1 = Windows pr‚sente l'interface gra-",15+16*1);
+		locatext(37,17,"1 = Windows prâ€šsente l'interface gra-",15+16*1);
 		locatext(37,18,"phique (le bureau ).",15+16*1);
-		locatext(37,19,"0 = Windows en reste … la ligne de com-",15+16*1);
+		locatext(37,19,"0 = Windows en reste â€¦ la ligne de com-",15+16*1);
 		locatext(37,20,"mande du DOS.",15+16*1);
 	}
 	if (numb==9) {
@@ -606,60 +606,60 @@ void signification(int numb)
 		locatext(37,17,"1 = Les touches de fonction du demar-",15+16*1);
 		locatext(37,18,"rage seront disponible.",15+16*1);
 		locatext(37,19,"0 = Aucune touche de fonction ne sera  ",15+16*1);
-		locatext(37,20,"utilisable . BootDelay sera ignor‚ et ",15+16*1);
-		locatext(37,21,"le message 'D‚marrage de Windows 95' ne",15+16*1);
+		locatext(37,20,"utilisable . BootDelay sera ignorâ€š et ",15+16*1);
+		locatext(37,21,"le message 'Dâ€šmarrage de Windows 95' ne",15+16*1);
 		locatext(37,22,"restera que deux secondes .",15+16*1);
 	}
 	if (numb==10) {
 		locatext(37,15,"   1 ou 0                     1",14+16*1);
-		locatext(37,17,"1 = Le menu de d‚marrage sera affich‚ ,",15+16*1);
-		locatext(37,18,"mˆme sans enfoncer la touche F8",15+16*1);
-		locatext(37,19,"0 = Le menu de d‚marrage sera affich‚  ",15+16*1);
-		locatext(37,20,"uniquement si la touche F8 est enfonc‚e",15+16*1);
+		locatext(37,17,"1 = Le menu de dâ€šmarrage sera affichâ€š ,",15+16*1);
+		locatext(37,18,"mË†me sans enfoncer la touche F8",15+16*1);
+		locatext(37,19,"0 = Le menu de dâ€šmarrage sera affichâ€š  ",15+16*1);
+		locatext(37,20,"uniquement si la touche F8 est enfoncâ€še",15+16*1);
 	}
 	if (numb==11) {
-		locatext(37,15,"   1 … 8                   1 ou 3",14+16*1);
-		locatext(37,17,"1 = si le systŠme fonctionne",15+16*1);
-		locatext(37,18,"3 = si le systŠme doit d‚marrer en mode",15+16*1);
-		locatext(37,19,"sans ‚chec",15+16*1);
-		locatext(37,20,"1 … 8 = est le num‚ro de l'option du",15+16*1);
-		locatext(37,21,"menu qui sera ‚xecut‚e.A condition que",15+16*1);
-		locatext(37,22,"le menu soit affich‚ avec Bootmenu =1",15+16*1);
+		locatext(37,15,"   1 â€¦ 8                   1 ou 3",14+16*1);
+		locatext(37,17,"1 = si le systÅ me fonctionne",15+16*1);
+		locatext(37,18,"3 = si le systÅ me doit dâ€šmarrer en mode",15+16*1);
+		locatext(37,19,"sans â€šchec",15+16*1);
+		locatext(37,20,"1 â€¦ 8 = est le numâ€šro de l'option du",15+16*1);
+		locatext(37,21,"menu qui sera â€šxecutâ€še.A condition que",15+16*1);
+		locatext(37,22,"le menu soit affichâ€š avec Bootmenu =1",15+16*1);
 	}
 	if (numb==12) {
 		locatext(37,15,"  Nombre de secondes          30",14+16*1);
-		locatext(37,17,"La dur‚e d'affichage du menu. Si le com-",15+16*1);
-		locatext(37,18,"pteur affich‚ atteint la valeur 0 sans",15+16*1);
+		locatext(37,17,"La durâ€še d'affichage du menu. Si le com-",15+16*1);
+		locatext(37,18,"pteur affichâ€š atteint la valeur 0 sans",15+16*1);
 		locatext(37,19,"intervention de l'utilisateur , l'option",15+16*1);
 		locatext(37,20,"par defaut (BootMenuDefault) sera alors",15+16*1);
-		locatext(37,21,"‚x‚cut‚e ",15+16*1);
+		locatext(37,21,"â€šxâ€šcutâ€še ",15+16*1);
 	}
 	if (numb==13) {
 		locatext(37,15,"   1 ou 0                     0",14+16*1);
 		locatext(37,17,"1 = La touche F4 sera disponible pour",15+16*1);
-		locatext(37,18,"le chargement du systŠme d'exploitation",15+16*1);
-		locatext(37,19,"ant‚rieure .",15+16*1);
+		locatext(37,18,"le chargement du systÅ me d'exploitation",15+16*1);
+		locatext(37,19,"antâ€šrieure .",15+16*1);
 		locatext(37,20,"0 = Seul Windows sera disponible",15+16*1);
 	}
 	if (numb==14) {
 		locatext(37,15,"   1 ou 0                     1",14+16*1);
 		locatext(37,17,"1 = Le message vous informant du mode",15+16*1);
-		locatext(37,18,"'sans ‚chec' sera affich‚ si n‚cessaire",15+16*1);
-		locatext(37,19,"0 = Ce message ne sera Jamais affich‚.",15+16*1);
+		locatext(37,18,"'sans â€šchec' sera affichâ€š si nâ€šcessaire",15+16*1);
+		locatext(37,19,"0 = Ce message ne sera Jamais affichâ€š.",15+16*1);
 	}
 	if (numb==15) {
 		locatext(37,15,"   1 ou 0                     1",14+16*1);
-		locatext(37,17,"1 = le systŠme d'exploitation Windows",15+16*1);
-		locatext(37,18,"sera charg‚.",15+16*1);
-		locatext(37,19,"0 = Le systŠme ant‚rieur sera charg‚ …",15+16*1);
+		locatext(37,17,"1 = le systÅ me d'exploitation Windows",15+16*1);
+		locatext(37,18,"sera chargâ€š.",15+16*1);
+		locatext(37,19,"0 = Le systÅ me antâ€šrieur sera chargâ€š â€¦",15+16*1);
 		locatext(37,20,"condition que Windows le permette.",15+16*1);
 	}
 	if (numb==16) {
 		locatext(37,15,"   1 ou 0                     1",14+16*1);
-		locatext(37,17,"1 = Le double tampon est activ‚ , pour",15+16*1);
-		locatext(37,18,"les contr“leurs de disques durs qui le",15+16*1);
+		locatext(37,17,"1 = Le double tampon est activâ€š , pour",15+16*1);
+		locatext(37,18,"les contrâ€œleurs de disques durs qui le",15+16*1);
 		locatext(37,19,"demandent.",15+16*1);
-		locatext(37,20,"0 = Le double tampon est d‚sactiv‚.",15+16*1);
+		locatext(37,20,"0 = Le double tampon est dâ€šsactivâ€š.",15+16*1);
 	}
 	if (numb==17) {
 		locatext(37,15,"   1 ou 0                     1",14+16*1);
@@ -683,7 +683,7 @@ int sauve_msdos(int cpt)
 
 
 	if ((out = fopen("C:\\MSDOS.SYS","wt"))== NULL)	{
-	   fprintf(stderr, "Impossible de cr‚er le fichier MSDOS.SYS\n");
+	   fprintf(stderr, "Impossible de crâ€šer le fichier MSDOS.SYS\n");
 	   exit(1);
 	}
 /* "Windir","WinBootDir","HostWinBootDrv","BootDelay","BootFailSafe",
@@ -693,20 +693,20 @@ int sauve_msdos(int cpt)
 
 	fputs("[Options]\n",out); // +1 l'index de l'ecran et nom pas du tableau char *table
 	for (int i=0;i<cpt;i++)	{
-		locatext(78,25,"Ó×ô",1+16*9);delay(10);
+		locatext(78,25,"Ã“Ã—Ã´",1+16*9);delay(10);
 		if ((strlen(valeur_table[i])!=0)&&(Msdos95[i].type_donnee[8]=='o'))	{
 			fputs(Msdos95[i].win_commande,out);
-			locatext(78,25,"Ó×ô",3+16*9);delay(10);
+			locatext(78,25,"Ã“Ã—Ã´",3+16*9);delay(10);
 			fputs("=",out);
 			fputs(valeur_table[i],out);
-			locatext(78,25,"Ó×ô",11+16*9);delay(10);
+			locatext(78,25,"Ã“Ã—Ã´",11+16*9);delay(10);
 			fputs("\n",out);
 		}
 	}
 
 	fputs("\n",out);
-	fputs(";  Pour des raisons de compatibilit‚ , la taille de ce fichier\n",out);
-	fputs(";  ne doit pas ˆtre inferieur … 1024 octets .\n",out);
+	fputs(";  Pour des raisons de compatibilitâ€š , la taille de ce fichier\n",out);
+	fputs(";  ne doit pas Ë†tre inferieur â€¦ 1024 octets .\n",out);
 
 //  The following lines are required for compatibility with other programs .
 //  Do not remove them <MSDOS.sys needs to be > 1024 bytes> .
@@ -736,12 +736,12 @@ int sauve_msdos(int cpt)
 
 	fputs("[Paths]\n",out);
 	for (int z=0;z<cpt;z++)	{
-		locatext(78,25,"Ó×ô",1+16*9);delay(10);
+		locatext(78,25,"Ã“Ã—Ã´",1+16*9);delay(10);
 		if ((strlen(valeur_table[z])!=0)&&(Msdos95[z].type_donnee[8]=='p'))	{
-			locatext(78,25,"Ó×ô",3+16*9);delay(10);
+			locatext(78,25,"Ã“Ã—Ã´",3+16*9);delay(10);
 			fputs(Msdos95[z].win_commande,out);
 			fputs("=",out);
-			locatext(78,25,"Ó×ô",11+16*9);delay(10);
+			locatext(78,25,"Ã“Ã—Ã´",11+16*9);delay(10);
 			fputs(valeur_table[z],out);
 			fputs("\n",out);
 		}
@@ -780,7 +780,7 @@ int recup_info_msdos(char nom[32],char init)
 
 	}
 	// Important Copie le fichier pour plus de securite
-	// Ligne … Changer en Fonction
+	// Ligne â€¦ Changer en Fonction
 	//	system("copy C:\MSDOS.SYS C:\MSDOS.95 >NUL");
 
 	if ((in = fopen("C:\\MSDOS.SYS","rt"))== NULL)	{
@@ -790,7 +790,7 @@ int recup_info_msdos(char nom[32],char init)
 		_dos_setfileattr("C:\\MSDOS.SYS",FA_RDONLY|FA_HIDDEN|FA_SYSTEM);
 	   exit(1);
 	}
-	// initialise le nombre de ligne … zero
+	// initialise le nombre de ligne â€¦ zero
 	nbr_ligne=0;
 
 	do	{
@@ -802,10 +802,10 @@ int recup_info_msdos(char nom[32],char init)
 
 	fclose(in);
 
-	// tblx Position en x des ‚lements … afficher … l'ecran
-	// tbly Position en y des ‚lements … afficher … l'ecran
+	// tblx Position en x des â€šlements â€¦ afficher â€¦ l'ecran
+	// tbly Position en y des â€šlements â€¦ afficher â€¦ l'ecran
 	// valeur_table stocke les valeurs lue dans le fichier MSDOS.SYS
-	// table sert de reference … valeur_table
+	// table sert de reference â€¦ valeur_table
 	// table[0]="Windir" , etc voir char *table
 
 	affiche(0);
@@ -835,7 +835,7 @@ int recup_info_msdos(char nom[32],char init)
 	for(int nbr_element_table=0;nbr_element_table<16;nbr_element_table++) {
 		for(int i=0;i<nbr_ligne;i++) {
 			if (recup_ligne(Msdos95[nbr_element_table].win_commande,ligne_msdosys[i],valeur_table[nbr_element_table])==0)		{
-				locatext(tblx[nbr_element_table],tbly[nbr_element_table],valeur_table[nbr_element_table],14+16*9);				// Affiche les ‚lements de la table trouv‚s
+				locatext(tblx[nbr_element_table],tbly[nbr_element_table],valeur_table[nbr_element_table],14+16*9);				// Affiche les â€šlements de la table trouvâ€šs
 			}
 		}
 	}
@@ -856,8 +856,8 @@ int recup_ligne(char element[30],char ligne[30],char valeur_ligne[80])
 
 	left(ligne,chaine_decouper,strlen(element),FICHIER_TEXTE);
 
-	if (strcmpi(element,chaine_decouper)==0) { // ==0 ‚gale
-	   // Ici l'element a ‚t‚ trouver  , ASCII 61 = ' = '
+	if (strcmpi(element,chaine_decouper)==0) { // ==0 â€šgale
+	   // Ici l'element a â€štâ€š trouver  , ASCII 61 = ' = '
 	   if ((ligne[strlen(element)])==61) {
 		   right(ligne,valeur_ligne,strlen(ligne),strlen(ligne)-(strlen(element)+1));
 		   valeur_ligne[strlen(valeur_ligne)-1]=0;
@@ -877,25 +877,25 @@ int menu_fichier(void)
 {
 	int resultat_menu=0;
 
-	byte *str_fichier[7] = {" _Enregister MSDOS.SYS     F2","ÿ",
-							" _Charger MSDOS.SYS        F3","ÿ",
-							" _Restorer MSDOS.SYS       F5","ÿ",
+	byte *str_fichier[7] = {" _Enregister MSDOS.SYS     F2","Ã¿",
+							" _Charger MSDOS.SYS        F3","Ã¿",
+							" _Restorer MSDOS.SYS       F5","Ã¿",
 							" _Quitter                 F10"};
 	resultat_menu=menu_der(2,2,30,8,8,SIMPLE+DEROULER,15,12,BLACK,WHITE,BLACK,4,str_fichier);
 
 	if (resultat_menu==1) {
 		sauve_msdos(nbr_commande);
-		locatext(50,25,"Le fichier a ‚t‚ enregist‚",15+16*9);
+		locatext(50,25,"Le fichier a â€štâ€š enregistâ€š",15+16*9);
 	}
 	if (resultat_menu==3) {
-		recup_info_msdos("c:\\MSDOS.SYS",1); // Recupere les donn‚es du fichier MSDOS.SYS
-		locatext(50,25,"Le fichier a ‚t‚ charg‚     ",15+16*9);
+		recup_info_msdos("c:\\MSDOS.SYS",1); // Recupere les donnâ€šes du fichier MSDOS.SYS
+		locatext(50,25,"Le fichier a â€štâ€š chargâ€š     ",15+16*9);
 		aff_val();
 	}
 	if (resultat_menu==5) {
 		installation("c:\\msdos.zch","c:\\msdos.sys");
-		locatext(50,25,"Le fichier a ‚t‚ restor‚    ",15+16*9);
-		recup_info_msdos("c:\\MSDOS.SYS",1); // Recupere les donn‚es du fichier MSDOS.SYS
+		locatext(50,25,"Le fichier a â€štâ€š restorâ€š    ",15+16*9);
+		recup_info_msdos("c:\\MSDOS.SYS",1); // Recupere les donnâ€šes du fichier MSDOS.SYS
 		aff_val();
 	}
 	if (resultat_menu==7) {
@@ -926,7 +926,7 @@ void erreur_system(void)
 
 int menu_edit(void)
 {
-	byte *str_edit[5]  ={" _Msdos              F4"," _Autoexec.bat"," _Config.sys ","ÿ"," _Choisir un ‚diteur"};
+	byte *str_edit[5]  ={" _Msdos              F4"," _Autoexec.bat"," _Config.sys ","Ã¿"," _Choisir un â€šditeur"};
 
 	int resultat_menu=0;
 
@@ -935,8 +935,8 @@ int menu_edit(void)
 	if (resultat_menu==1) {
 		edit("c:\\MSDOS.SYS"); // Lance l editeur ZC
 		deco();
-		locatext(50,25,"Le fichier a ‚t‚ charg‚     ",15+16*9);
-		recup_info_msdos("c:\\MSDOS.SYS",1); // Recupere les donn‚es du fichier MSDOS.SYS
+		locatext(50,25,"Le fichier a â€štâ€š chargâ€š     ",15+16*9);
+		recup_info_msdos("c:\\MSDOS.SYS",1); // Recupere les donnâ€šes du fichier MSDOS.SYS
 	}
 	if (resultat_menu==2) {
 		edit("c:\\autoexec.bat"); // Lance l editeur ZC
@@ -956,33 +956,33 @@ int menu_aide(void)
 	char buffer[4096];
 
 
-	byte *str_fichier[9]  ={" _Description de OUTWIN95     F1","ÿ"," _Un peu d'Histoire  ","ÿ"," _Mots cl‚s de Bootlog.txt"," _Effet du Mode sans ‚chec","ÿ"," A _Propo de ... "};
+	byte *str_fichier[9]  ={" _Description de OUTWIN95     F1","Ã¿"," _Un peu d'Histoire  ","Ã¿"," _Mots clâ€šs de Bootlog.txt"," _Effet du Mode sans â€šchec","Ã¿"," A _Propo de ... "};
 
-	byte *str_aide[33]  ={"  Le premier au poste ","  _Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä",
-						  "    Les deux premiers fichiers charg‚s en m‚moire se nomment",
-						  "   IO.SYS et MSDOS.SYS . Ils sont toujours  pr‚sents dans le",
-						  "   r‚pertoire racine du disque … partir  duquel l'ordinateur",
-						  "   d‚marre . ",
-						  "   Leurs comp‚tences se  sont ‚tendues , Msdos.sys ‚tant mˆme ",
+	byte *str_aide[33]  ={"  Le premier au poste ","  _Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„",
+						  "    Les deux premiers fichiers chargâ€šs en mâ€šmoire se nomment",
+						  "   IO.SYS et MSDOS.SYS . Ils sont toujours  prâ€šsents dans le",
+						  "   râ€špertoire racine du disque â€¦ partir  duquel l'ordinateur",
+						  "   dâ€šmarre . ",
+						  "   Leurs compâ€štences se  sont â€štendues , Msdos.sys â€štant mË†me ",
 						  "   devenu un fichier texte . ",
-						  "   IO.SYS est un fichier de 210 ko environ qui d‚finit",
-						  "   entierement le systŠme. il regroupe les fonctionnalit‚s",
+						  "   IO.SYS est un fichier de 210 ko environ qui dâ€šfinit",
+						  "   entierement le systÅ me. il regroupe les fonctionnalitâ€šs",
 						  "   des anciens IO et MSDOS.sys.",
-						  "   Il ne peut pas ˆtre ‚dit‚ : il est impossible de modifier",
-						  "   directement les instructions et les valeurs par d‚faut."," ",
-						  "   MSDOS.SYS","   _Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä"," ",
-						  "       Msdos.sys est compos‚ de deux sections , … savoir",
+						  "   Il ne peut pas Ë†tre â€šditâ€š : il est impossible de modifier",
+						  "   directement les instructions et les valeurs par dâ€šfaut."," ",
+						  "   MSDOS.SYS","   _Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„"," ",
+						  "       Msdos.sys est composâ€š de deux sections , â€¦ savoir",
 						  "   [Paths] et [Options], contenant chacunne des instructions",
-						  "   sp‚cifiques . La section [Paths] mentionne l'emplacement ",
-						  "   des fichiers de Windows 95. La section [Options] est … la",
+						  "   spâ€šcifiques . La section [Paths] mentionne l'emplacement ",
+						  "   des fichiers de Windows 95. La section [Options] est â€¦ la",
 						  "   disposition des utilisateurs dans le but de personnaliser",
 						  "   le lancement de Windows 95.",
-						  "     En ‚ditant le fichier d'initialisation MSDOS.sys , vous",
-						  "   remarquerez imm‚diatement qu'il comporte quelque lignes ",
+						  "     En â€šditant le fichier d'initialisation MSDOS.sys , vous",
+						  "   remarquerez immâ€šdiatement qu'il comporte quelque lignes ",
 						  "   de x apparemment inutiles . Ne les effacez pas : elles ",
-						  "   permettent au fichier d'atteindre une taille sup‚rieure …",
+						  "   permettent au fichier d'atteindre une taille supâ€šrieure â€¦",
 						  "   1 024 octets. En effet une taille inferieure serait mal ",
-						  "   interpret‚e ."," "
+						  "   interpretâ€še ."," "
 						  };
 
 	cache_souris();
@@ -1033,7 +1033,7 @@ int faire_fichier_boot(void)
 	for (int i=0;i<16;i++)
 		fputc(files_boot[i],out);
 
-	printf("\n Le fichier 'ZCBOOT' a ‚t‚ cr‚e avec succ‚s ...!!\n");
+	printf("\n Le fichier 'ZCBOOT' a â€štâ€š crâ€še avec succâ€šs ...!!\n");
 
 	return(0);
 }
@@ -1048,7 +1048,7 @@ int quitter(void)
 	winp(15,5,68,15,BLACK,WHITE,3,"   Quitter OutWin 95 ....");
 
 	titre(17,7,YELLOW,1,DARKGRAY,3, " Quitter ",0);
-	locatext(29,7,"\7",10+16*3);locatext(31,7,"Le contr“le est rendu au dos ou",15+16*3);
+	locatext(29,7,"\7",10+16*3);locatext(31,7,"Le contrâ€œle est rendu au dos ou",15+16*3);
 	locatext(31,8,"au programme appelant en general.",15+16*3);
 	titre(17,10,YELLOW,1,DARKGRAY,3, " Rebooter ",0);
 	locatext(29,10,"\7",10+16*3);locatext(31,10,"L'ordinateur REDEMARRE pour que les",15+16*3);
@@ -1073,7 +1073,7 @@ int quitter(void)
 		init_souris();
 		_dos_setfileattr("C:\\MSDOS.SYS",FA_RDONLY|FA_HIDDEN|FA_SYSTEM);
 		color(7,0);clrscr();
-		cprintf("Outwin 95 par ");color(4,0);cprintf("Ó×ô ");color(7,0);cprintf("ZeCrusher");
+		cprintf("Outwin 95 par ");color(4,0);cprintf("Ã“Ã—Ã´ ");color(7,0);cprintf("ZeCrusher");
 		_setcursortype(_NORMALCURSOR);
 		exit(0);
 	}
@@ -1098,14 +1098,14 @@ int quitter(void)
 void decrire_outwin(void)
 {
 
-	byte *str_commande[48]  ={"  _1   Utilisation de l'Aide _º","  _Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Í_Í_Í_Í_Í_Í_Í_Í_Í_Í_Í_Í_Í_Í_Í_¼","",
-							  "  Faites d‚filer pour voir la suite de l'‚cran","",
-							  "  Le systŠme d'aide se manipule avec les commandes de menus. Vous",
-							  "  pouvez  utiliser les  ascenseurs symbolis‚s par les  caracteres ",
-							  "  '\x1E' '\x1F' plac‚ sur la droite du menu , soit avec les fl‚ches",
+	byte *str_commande[48]  ={"  _1   Utilisation de l'Aide _Âº","  _Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã_Ã_Ã_Ã_Ã_Ã_Ã_Ã_Ã_Ã_Ã_Ã_Ã_Ã_Ã_Â¼","",
+							  "  Faites dâ€šfiler pour voir la suite de l'â€šcran","",
+							  "  Le systÅ me d'aide se manipule avec les commandes de menus. Vous",
+							  "  pouvez  utiliser les  ascenseurs symbolisâ€šs par les  caracteres ",
+							  "  '\x1E' '\x1F' placâ€š sur la droite du menu , soit avec les flâ€šches",
 							  "  du clavier . ","","",
-							  "   _2  OutWin en quelques mots _º",
-							  "   _Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Í_Í_Í_Í_Í_Í_Í_Í_Í_Í_Í_Í_Í_Í_Í_Í_¼","",
+							  "   _2  OutWin en quelques mots _Âº",
+							  "   _Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã_Ã_Ã_Ã_Ã_Ã_Ã_Ã_Ã_Ã_Ã_Ã_Ã_Ã_Ã_Ã_Â¼","",
 							  "  "," "," "," "," "," "," "," "," "," "," "," ",""};
 
 		menu_der(5,3,69,20,28,SIMPLE,0,11,1,11,0,4,str_commande);
@@ -1114,60 +1114,60 @@ void decrire_outwin(void)
 void decrire_bootlog(void)
 {
 
-	byte *str_commande[42]  ={"  La d‚tection des d‚faillances  "," _Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_",
-							  "  L'option Journal de d‚marrage permet de d‚crire dans",
-							  "  un fichier journal (Bootlog.txt) le d‚roulement de la",
+	byte *str_commande[42]  ={"  La dâ€štection des dâ€šfaillances  "," _Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_",
+							  "  L'option Journal de dâ€šmarrage permet de dâ€šcrire dans",
+							  "  un fichier journal (Bootlog.txt) le dâ€šroulement de la",
 							  "  phase de lancement.",
 							  "  afin de le consulter , vous le trouverez dans le ",
-							  "  disque de d‚marrage C:\ .","",
-							  "  Attention , il possede l'attribut cach‚ .","",
-							  "  A chaque cr‚ation d'un nouveau fichier Bootlog la version",
-							  "  pr‚cedente de Bootlog.txt est copi‚e dans Bootlog.prv","",
-							  "  Les Mots cl‚s utilis‚s par BootLog.txt","",
+							  "  disque de dâ€šmarrage C:\ .","",
+							  "  Attention , il possede l'attribut cachâ€š .","",
+							  "  A chaque crâ€šation d'un nouveau fichier Bootlog la version",
+							  "  prâ€šcedente de Bootlog.txt est copiâ€še dans Bootlog.prv","",
+							  "  Les Mots clâ€šs utilisâ€šs par BootLog.txt","",
 							  "  Error                      Erreur survenue pendant le",
-							  "                             d‚marrage",
+							  "                             dâ€šmarrage",
 							  "  Fail                       Echec survenu pendant le",
-							  "                             d‚marrage",
-							  "  Dynamic load success       Pilote de p‚riph‚rique charg‚",
+							  "                             dâ€šmarrage",
+							  "  Dynamic load success       Pilote de pâ€šriphâ€šrique chargâ€š",
 							  "                             dynamiquement",
 							  "  Load Start                 Debut de chargement",
-							  "  LoadSuccess                Chargement r‚ussi",
-							  "  Loading device             P‚ripherique charg‚",
-							  "  Loading Vxd                P‚ripherique virtuel charg‚",
+							  "  LoadSuccess                Chargement râ€šussi",
+							  "  Loading device             Pâ€šripherique chargâ€š",
+							  "  Loading Vxd                Pâ€šripherique virtuel chargâ€š",
 							  "  LoadFailed                 Echec de chargement",
-							  "  SYSCRITINIT                Initialisation du systŠme",
-							  "  SYSCRITINIT-SUCCEESS       Initialisation du systŠme",
-							  "                             R‚ussie",
-							  "  DEVICEINIT                 Initialisation de p‚ripherique",
-							  "  DEVICEINIT-SUCCESS         Initialisation r‚ussie",
+							  "  SYSCRITINIT                Initialisation du systÅ me",
+							  "  SYSCRITINIT-SUCCEESS       Initialisation du systÅ me",
+							  "                             Râ€šussie",
+							  "  DEVICEINIT                 Initialisation de pâ€šripherique",
+							  "  DEVICEINIT-SUCCESS         Initialisation râ€šussie",
 							  "  Dynamic load device        Chargement dynamique de",
-							  "                             p‚ripherique",
+							  "                             pâ€šripherique",
 							  "  Dynamic init device        Initialisation dynamique de",
-							  "                             p‚ripherique",
+							  "                             pâ€šripherique",
 							  "  Initing                    Initialisation",
-							  "  Init Success               Initialisation r‚ussie",
-							  "  INITCOMPLETE               Initialisation termin‚e",
-							  "  InitDone                   Initialisation termin‚e",
+							  "  Init Success               Initialisation râ€šussie",
+							  "  INITCOMPLETE               Initialisation terminâ€še",
+							  "  InitDone                   Initialisation terminâ€še",
 							  "  Status                     Indicateur","",""};
 
 		menu_der(5,3,62,20,42,SIMPLE,15,3,15,3,15,4,str_commande);
 }
 void decrire_echec(void)
 {
-	byte *str_commande[27]  ={"  Le Mode SANS ECHEC "," _Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_Ä_",
-							  "    Suite … un problŠme qui , en principe , empˆcherait",
-							  "    Windows de fonctionner , le Mode Sans Echecs d‚marre",
-							  "    le systŠme.",""
+	byte *str_commande[27]  ={"  Le Mode SANS ECHEC "," _Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_Ã„_",
+							  "    Suite â€¦ un problÅ me qui , en principe , empË†cherait",
+							  "    Windows de fonctionner , le Mode Sans Echecs dâ€šmarre",
+							  "    le systÅ me.",""
 							  "    Effet des deux principaux modes SANS ECHEC",
 							  "    \x1( Voir BootFailSafe \x1)",
 							  "                                                       Ligne de",
 							  "                                      Mode         commande en mode",
 							  "                                   Sans Echec         Sans Echec",
 							  "",
-							  "  \xe- Ex‚cution des Fichiers             \x4N\x4o\x4n                \x4N\x4o\x4n",
+							  "  \xe- Exâ€šcution des Fichiers             \x4N\x4o\x4n                \x4N\x4o\x4n",
 							  "    Config et Autoexec            ","",
 							  "  \xe- Chargement de Himem.sys            \x1O\x1u\x1i                \x4N\x4o\x4n","",
-							  "  \xe- Ex‚cution de la base de            \x4N\x4o\x4n                \x4N\x4o\x4n",
+							  "  \xe- Exâ€šcution de la base de            \x4N\x4o\x4n                \x4N\x4o\x4n",
 							  "    de registres                                             ","",
 							  "  \xe- Chargement de command.com          \x4N\x4o\x4n                \x1O\x1u\x1i","",
 							  "  \xe- Ouverture du bureau Windows        \x1O\x1u\x1i                \x4N\x4o\x4n","",
@@ -1208,10 +1208,10 @@ int choisir_editeur(void)
 	charger_table("long.als");   // Charge la police de caractere ALES
 	cache_souris();
 	fond(0);
-	table_ascii();		// F1 , Cr‚ation des nouveau char ASCII
+	table_ascii();		// F1 , Crâ€šation des nouveau char ASCII
 	deco();
 	affiche(0);
-	recup_info_msdos("c:\\MSDOS.SYS",1); // Recupere les donn‚es du fichier MSDOS.SYS
+	recup_info_msdos("c:\\MSDOS.SYS",1); // Recupere les donnâ€šes du fichier MSDOS.SYS
 
 	return(0);
 }
@@ -1220,16 +1220,16 @@ int menu_mode(void)
 {
 	int resultat_menu=0;
 
-	byte *str_fichier[16] = {" _0  D‚marrer avec le bureau Windows 95",
-							" _1  D‚marrer sous MSDOS 7.xx","ÿ",
+	byte *str_fichier[16] = {" _0  Dâ€šmarrer avec le bureau Windows 95",
+							" _1  Dâ€šmarrer sous MSDOS 7.xx","Ã¿",
 							" _2  Afficher le logo Windows 95",
-							" _3  Ne pas afficher le logo Windows 95","ÿ",
-							" _4  D‚marrer en mode sans Echec",
-							" _5  D‚marrer en mode appropri‚ " ,"ÿ",
+							" _3  Ne pas afficher le logo Windows 95","Ã¿",
+							" _4  Dâ€šmarrer en mode sans Echec",
+							" _5  Dâ€šmarrer en mode appropriâ€š " ,"Ã¿",
 							" _6  Active le tampon double",
-							" _7  D‚sactive le tampon double","ÿ",
+							" _7  Dâ€šsactive le tampon double","Ã¿",
 							" _8  Afficher le menu de demarage",
-							" _9  Ne pas afficher le menu de d‚marrage",
+							" _9  Ne pas afficher le menu de dâ€šmarrage",
 							};
 
 	resultat_menu=menu_der(17,2,45,15,15,SIMPLE+DEROULER,15,12,BLACK,WHITE,BLACK,4,str_fichier);
@@ -1246,7 +1246,7 @@ int menu_mode(void)
 	if (resultat_menu==14) strcpy(valeur_table[7],"0"); //  7 "BootMenu",
 
 	if ((resultat_menu!=-1)&&(resultat_menu!=555)&&(resultat_menu!=555)) {
-		locatext(1,25," Les changements r‚ussie .....                                                  ",14+16*1);
+		locatext(1,25," Les changements râ€šussie .....                                                  ",14+16*1);
 		delay(400);
 		locatext(1,25,"                                                                                ",9+16*9);
 		cache_souris();
@@ -1278,24 +1278,24 @@ int installation(char file_source[20],char file_objet[20])
 	textbackground(9);
 
 		if ((in = fopen(file_source, "rb"))== NULL)
-		{   locatext(6,25,"Cliquez sur Entr‚e ou tapez sur entr‚e pour continuer                ",1+16*15); // inscrit le nom du fichier en train d'ˆtre visualiser
-			fenetre(20,8,52,14,LIGHTRED,WHITE,WHITE,"Erreur detect‚e");
+		{   locatext(6,25,"Cliquez sur Entrâ€še ou tapez sur entrâ€še pour continuer                ",1+16*15); // inscrit le nom du fichier en train d'Ë†tre visualiser
+			fenetre(20,8,52,14,LIGHTRED,WHITE,WHITE,"Erreur detectâ€še");
 			locatext(27,10,"Erreur sur fichier",BLACK+16*WHITE);
-			locatext(26,11,"V‚rifi‚ la disquette",BLACK+16*WHITE);
-			titre(31,13,LIGHTRED,RED,DARKGRAY,WHITE, "  Entr‚e  ",0);
+			locatext(26,11,"Vâ€šrifiâ€š la disquette",BLACK+16*WHITE);
+			titre(31,13,LIGHTRED,RED,DARKGRAY,WHITE, "  Entrâ€še  ",0);
 			bouton_xyl(31,13,10);
-			titre(31,13,LIGHTRED,RED,DARKGRAY,WHITE, "  Entr‚e  ",1);
+			titre(31,13,LIGHTRED,RED,DARKGRAY,WHITE, "  Entrâ€še  ",1);
 			puttext(1, 1, 80, 25,sauve);
 			return(1);
 		}
 
 	if ((out = fopen(file_objet, "wb"))== NULL)
-	{  	fenetre(20,8,52,14,LIGHTRED,WHITE,WHITE,"Erreur detect‚e");
-		locatext(27,10,"Impossible de cr‚er",BLACK+16*WHITE);
+	{  	fenetre(20,8,52,14,LIGHTRED,WHITE,WHITE,"Erreur detectâ€še");
+		locatext(27,10,"Impossible de crâ€šer",BLACK+16*WHITE);
 		locatext(26,11,"le fichier          ",BLACK+16*WHITE);
-		titre(31,13,LIGHTRED,RED,DARKGRAY,WHITE, "  Entr‚e  ",0);
+		titre(31,13,LIGHTRED,RED,DARKGRAY,WHITE, "  Entrâ€še  ",0);
 		bouton_xyl(31,13,10);
-		titre(31,13,LIGHTRED,RED,DARKGRAY,WHITE, "  Entr‚e  ",1);
+		titre(31,13,LIGHTRED,RED,DARKGRAY,WHITE, "  Entrâ€še  ",1);
 		puttext(1, 1, 80, 25,sauve);
 		return(1);
 	}
@@ -1314,15 +1314,15 @@ int installation(char file_source[20],char file_objet[20])
 	{
 		copi++;
 		incr++;
-		locatext(78,25,"Ó×ô",1+16*9);
+		locatext(78,25,"Ã“Ã—Ã´",1+16*9);
 		if (incr>divid) {
 			gotoxy(36,16);
-			locatext(78,25,"Ó×ô",3+16*9);
+			locatext(78,25,"Ã“Ã—Ã´",3+16*9);
 			delay(10);
 			printf("<%% %2d>",pas*100/33);
 			modif_fond(pas+24,16,1,15+16*9,0);
 			pas++;incr=0;
-			locatext(78,25,"Ó×ô",11+16*9);
+			locatext(78,25,"Ã“Ã—Ã´",11+16*9);
 			delay(10);
 	  }
 		fputc(fgetc(in), out);
@@ -1341,10 +1341,10 @@ int lecteur_indefinie(void)
 	int nbr_lecteur=0;
 	int taille=0;
 
-	byte *str_disk[24]={" _C: ÏĞµ "," _D: ÏĞµ "," _E: ÏĞµ "," _F: ÏĞµ "," _G: ÏĞµ ",
-						" _H: ÏĞµ "," _I: ÏĞµ "," _J: ÏĞµ "," _K: ÏĞµ "," _L: ÏĞµ "," _M: ÏĞµ "," _N: ÏĞµ ",
-						" _O: ÏĞµ "," _P: ÏĞµ "," _Q: ÏĞµ "," _R: ÏĞµ "," _S: ÏĞµ "," _T: ÏĞµ "," _U: ÏĞµ ",
-						" _W: ÏĞµ "," _X: ÏĞµ "," _Y: ÏĞµ "," _Z: ÏĞµ " };
+	byte *str_disk[24]={" _C: ÃÃÂµ "," _D: ÃÃÂµ "," _E: ÃÃÂµ "," _F: ÃÃÂµ "," _G: ÃÃÂµ ",
+						" _H: ÃÃÂµ "," _I: ÃÃÂµ "," _J: ÃÃÂµ "," _K: ÃÃÂµ "," _L: ÃÃÂµ "," _M: ÃÃÂµ "," _N: ÃÃÂµ ",
+						" _O: ÃÃÂµ "," _P: ÃÃÂµ "," _Q: ÃÃÂµ "," _R: ÃÃÂµ "," _S: ÃÃÂµ "," _T: ÃÃÂµ "," _U: ÃÃÂµ ",
+						" _W: ÃÃÂµ "," _X: ÃÃÂµ "," _Y: ÃÃÂµ "," _Z: ÃÃÂµ " };
 
 
 	nbr_lecteur=recherche_nbr_lecteur();
@@ -1370,8 +1370,8 @@ int analyse_table(int cpt)
 	FILE *in;
 	char msg[129];
 	char buffer[310]; //  = ( 68 - 23 ) * ( 17 - 15 ) * 2 Voir CADRE_PLEIN ci-dessous
-	char commande[64];  // commande cr‚e par le User .
-	char comment[128]; // Pour les commentaires de l utilisateur … propos de la commande .
+	char commande[64];  // commande crâ€še par le User .
+	char comment[128]; // Pour les commentaires de l utilisateur â€¦ propos de la commande .
 	char min[10]={0},max[10]={0}; // si il y a un type decimal_option ou decimal_path
 
 	char type_com[20]={0};
@@ -1426,7 +1426,7 @@ int analyser_ligne(char ligne[128],char commande[32],char type[20],char min[10],
 	for (int i=0;i<taille-1;i++)	{ /////////////// for //////////////////////////////////////////////
 		if (ligne[i]==';') pvirgule=1;
 		if (ligne[i]==' ') espace++;
-		if ((ligne[i]=='/')&&(ligne[i+1]=='/')) { // commentaire trouv‚
+		if ((ligne[i]=='/')&&(ligne[i+1]=='/')) { // commentaire trouvâ€š
 			if ((espace!=i)&&(pvirgule!=1)) {	  // Il y a t-il des chars autre que ' ' (0x20) devant et pas de ; devant
 				return(0);						  // Erreur
 			}
